@@ -34,9 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         String emailvalue = email.getText().toString();
         String senhavalue = senha.getText().toString();
 
-        boolean res = db.emailsenha(emailvalue,senhavalue);
+        boolean res = db.emailsenha(emailvalue, senhavalue);
         if(res){
             Toast.makeText(this,"Login efetuado com sucesso!" ,Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else if (emailvalue.isEmpty() || senhavalue.isEmpty()) {
+            Toast.makeText(this,"Preencha os campos!" ,Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this,"Dados inválidos!" ,Toast.LENGTH_SHORT).show();
         }

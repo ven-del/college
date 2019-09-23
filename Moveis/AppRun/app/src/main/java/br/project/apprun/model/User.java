@@ -1,9 +1,15 @@
 package br.project.apprun.model;
 
+import android.graphics.Bitmap;
+import android.util.Base64;
+
+import java.io.ByteArrayOutputStream;
+
 public class User {
 
     private Integer id;
     private String nome;
+    private String sexo;
     private String email;
     private String senha;
     private String telefone;
@@ -23,6 +29,14 @@ public class User {
         return nome;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -33,6 +47,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public String getSenha() {
@@ -64,4 +86,5 @@ public class User {
     }
 
     public void setTurma(String turma) { this.turma = turma;  }
+
 }

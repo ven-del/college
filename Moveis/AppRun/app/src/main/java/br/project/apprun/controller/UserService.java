@@ -23,6 +23,8 @@ public class UserService {
         //Valores que será inserido
         ContentValues values = new ContentValues();
         values.put("nome", user.getNome());
+        values.put("foto", user.getFoto());
+        values.put("sexo", user.getSexo());
         values.put("email", user.getEmail());
         values.put("senha", user.getSenha());
         values.put("telefone", user.getTelefone());
@@ -31,6 +33,5 @@ public class UserService {
         return banco.insert("users", null, values);
 
     }
-
 
 }

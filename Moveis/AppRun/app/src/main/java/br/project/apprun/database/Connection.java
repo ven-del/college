@@ -21,6 +21,7 @@ public class Connection extends SQLiteOpenHelper {
                 "(id integer primary key autoincrement," +
                 "foto blob," +
                 "nome varchar(50)," +
+                "sexo varchar(50),"+
                 "email varchar(50)," +
                 "senha varchar(6)," +
                 "telefone varchar(20)," +
@@ -39,6 +40,14 @@ public class Connection extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from users where email=? and senha=?",
                 new String[] {email, senha});
         if(cursor.getCount()>0) return true;
+        else return false;
+    }
+
+    //Checar email existente
+    public Boolean emailExist(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from users where email=?", new String[]{email});
+        if(cursor.getCount() >0) return true;
         else return false;
     }
 }
